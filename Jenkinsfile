@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    sh 'g++ -o PES1UG22CS717-1 main.cpp' // Compiles C++ file
+                    // Compilation step removed to cause an error
                 }
             }
         }
@@ -13,7 +13,7 @@ pipeline {
         stage('Test') {
             steps {
                 script {
-                    sh './PES1UG22CS717-1' // Runs the compiled file
+                    sh './PES1UG22CS717-1' // Runs the compiled file (which won't exist)
                 }
             }
         }
