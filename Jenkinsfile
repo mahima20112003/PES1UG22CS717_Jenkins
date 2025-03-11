@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    sh 'g++ -o PES1UG22CS717-1 main.cpp' // Compilation succeeds
+                    sh 'g++ -o PES1UG22CS717-1 main.cpp' // Compiles C++ file
                 }
             }
         }
@@ -13,7 +13,7 @@ pipeline {
         stage('Test') {
             steps {
                 script {
-                    sh './non_existent_binary' // This will fail because the file doesn't exist
+                    sh './PES1UG22CS717-1' // Runs the compiled file
                 }
             }
         }
@@ -27,7 +27,7 @@ pipeline {
     
     post {
         failure {
-            echo 'Pipeline failed' // This runs if any stage fails
+            echo 'Pipeline failed' // Post action in case of failure
         }
     }
 }
